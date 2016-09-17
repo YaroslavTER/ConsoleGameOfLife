@@ -12,8 +12,7 @@ namespace ConsoleGameOfLife
         static void Main(string[] args)
         {
             Board board = new Board(24, 39, ' ', '#');
-            //board.SetMatrix(Generate.Random(board.GetMatrix()));
-            board.SetMatrix(Generate.GunGliders(board));
+            board.SetMatrix(Generate.Random(board.GetMatrix()));
             board.ShowBoard();
             while (true)
             {
