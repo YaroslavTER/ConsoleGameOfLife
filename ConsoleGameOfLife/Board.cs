@@ -91,6 +91,19 @@ namespace ConsoleGameOfLife
             next_matrix = new bool[matrix.GetLength(0), matrix.GetLength(1)];
         }
 
+        public bool Continue()
+        {
+            bool result = true;
+            int counter = 0;
+            for(int row_index = 0; row_index < matrix.GetLength(0); row_index++)
+                for (int col_index = 0; col_index < matrix.GetLength(1); col_index++)
+                    if (matrix[row_index, col_index].CompareTo(next_matrix[row_index, col_index]) == 0)
+                        counter++;
+            if (counter == matrix.GetLength(0) * matrix.GetLength(1))
+                result = false;
+            return result;
+        }
+
         public void ShowBoard(){
             String separator = " ";
             for(int row_index = 0; row_index < matrix.GetLength(0); row_index++) {

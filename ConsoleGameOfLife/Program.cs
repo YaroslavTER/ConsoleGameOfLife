@@ -13,10 +13,13 @@ namespace ConsoleGameOfLife
         {
             Board board = new Board(24, 39, ' ', '#');
             board.SetMatrix(Generate.Random(board.GetMatrix()));
+            bool result = board.Continue();
+            board.SetNonEmptySymbolCoordinates(0, 0);
+            result = board.Continue();
             board.ShowBoard();
-            while (true)
+            while (board.Continue())
             {
-                board.Move();
+                board.Move();                
                 Thread.Sleep(500);
                 Console.Clear();
                 board.Equal();
